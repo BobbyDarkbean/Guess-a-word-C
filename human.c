@@ -24,7 +24,7 @@ void turn_human(player_info *pl_human, player_info *pl_ai)
     cmp = matches(pl_ai->word, w);
     printf("\t\t... %d match(es).\n", cmp);
 
-    if (cmp == W_LEN && !has_repeats(pl_human->word)) {
+    if (cmp == W_LEN && !has_repeats(w)) {
         pl_human->solved = 1;
     }
 }
