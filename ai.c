@@ -80,5 +80,5 @@ void initialize_sample_words()
 
 int is_word_valid(const char *ptrn, const char *cmpr, int mt)
 {
-    return mt ? matches(ptrn, cmpr) == mt : !matches(ptrn, cmpr);
+    return matches(ptrn, cmpr) == mt;
 }
