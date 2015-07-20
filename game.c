@@ -9,10 +9,9 @@
 
 void play_game()
 {
-    game_status gs;
     int turn;
     player_info pl[PL_COUNT];
-    void (*make_move[PL_COUNT])(player_info *, player_info *, game_status *);
+    void (*make_move[PL_COUNT])(player_info *, player_info *);
 
     make_move[H_TURN] = turn_human;
     make_move[AI_TURN] = turn_ai;
@@ -37,14 +36,12 @@ void play_game()
         pl[H_TURN].solved = 0;
         pl[AI_TURN].solved = 0;
 
-        gs = RUNNING;
-
         while (!pl[turn].solved || !pl[turn ^ 1].solved)
         {
             if (!pl[turn].solved)
-                (*make_move[turn])(&pl[turn], &pl[turn ^ 1], &gs);
+                (*make_move[turn])(&pl[turn], &pl[turn ^ 1]);
             if (!pl[turn ^ 1].solved)
-                (*make_move[turn ^ 1])(&pl[turn ^ 1], &pl[turn], &gs);
+                (*make_move[turn ^ 1])(&pl[turn ^ 1], &pl[turn]);
         }
 
         if (pl[H_TURN].movesToSolve < pl[AI_TURN].movesToSolve)
