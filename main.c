@@ -4,7 +4,7 @@
 #include "game.h"
 
 #define APP_NAME ("Guess a word")
-#define APP_VER 1.01
+#define APP_VER 1.02
 #define YEAR (__DATE__ + 7)
 
 int main()
